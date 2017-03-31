@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Validations</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/form1.css">
+</head>
+<body>
+<div class="container">
+	 <form id="form" action="https://www.google.com/a/signup/#0" class="form-horizontal" data-toggle="validator">
+     <label id="header" class="col-md-12">Form for Ordering a Device</label>
+        <div class="form-group has-feedback">
+            <label for="firstname" >First Name:</label><br>
+            <div class="col-md-6">
+                <input type="text" name="fname" id="fname" class="form-control" placeholder="Enter first name" />
+                <span class="glyphicon form-control-feedback" id="fname1"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="lname">Last Name</label><br>
+            <div class="col-md-6">
+                <input type="text" name="lname" id="lname" class="form-control" placeholder="Enter last name" />
+                <span class="glyphicon form-control-feedback" id="lname1"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="email">Email</label><br>
+            <div class="col-md-6">
+                <input type="text" pattern="^[_A-z0-9]{1,}$" name="email" id="email" class="form-control" placeholder="Email" />
+                <span class="glyphicon form-control-feedback" id="email1"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="Password">Password</label><br>
+            <div class="col-md-6">
+                <input type="text" name="password" id="password" class="form-control" placeholder="Password" />
+                <span class="glyphicon form-control-feedback" id="password1"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback" >
+            <label for="gender">Gender</label><br>
+            <span class="glyphicon form-control-feedback" id="male1"></span>
+            <div class="col-md-6">
+            <input id="male" type="radio" name="Gender" value="Male"/>
+            <label for="male">Male</label><br>
+            <input id="female" type="radio" name="Gender" value="Female"/>
+            <label for="female">Female</label>
+            <span class="glyphicon form-control-feedback" id="female1"></span>
+            </div> 
+        </div>
+        <div class="form-group has-feedback">
+            <label for="date">Choose a Order Date</label><br>
+            <div class="col-md-6">
+                <input id="date" name="date" class="form-control" type="date">
+                <span class="glyphicon form-control-feedback" id="date1"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="choose a device">Choose a range of device:</label><br>
+            <div class="col-md-6">
+                50<input id="device" name="device" type="range" min="50" max="1000" />1000
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="song">Thinking to listen a song?</label><br/>
+            <div class="audio" class="col-md-6">
+                <iframe width="100%" height="200px" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/239793308&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+                <span class="glyphicon form-control-feedback" id="song"></span>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+        <label for="system">Choose preffered Operating System?</label><br/>
+        <span class="glyphicon form-control-feedback" id="BBM1"></span>
+        <div class="col-md-12">
+            <input id="Android" type="checkbox" name="system" value="Android"></input>
+            <label><a href="https://www.android.com" target="_blank">Android</a></label><br/>
+            <input id="iOS" type="checkbox" name="system" value="iOS"></input>
+            <label for="iOS"><a href="http://www.apple.com/ios" target="_blank" >iOS</a></label><br/>
+            <input id="windows" type="checkbox" name="system" value="Windows"></input>
+            <label><a href="http://www.microsoft.com/en-us/windows" target="_blank">Windows</a></label><br/>
+            <input id="BBM" type="checkbox" name="system" value="BBM"></input>
+            <label><a href="http://www.bbm.com/bbm/en.html" target="_blank">BBM</a></label>
+        </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="choose a brand">Choose a Brand</label><br>
+            <div class="col-md-6">
+                <input id="brand" name="brand" class="form-control" list="brands" placeholder="Brands">
+                <span class="glyphicon form-control-feedback" id="brand1"></span>
+                <datalist id="brands">
+                    <option value="Apple" />
+                    <option value="Blackberry" />
+                    <option value="HTC" />
+                    <option value="LG" />
+                    <option value="Microsoft" />
+                    <option value="Micromax" />
+                    <option value="Motorola" />
+                    <option value="Samsung" />
+                </datalist>
+            </div>
+        </div>
+        <input type="submit" class="btn btn-success col-md-3" value="Submit">
+        <input type="reset" class="btn btn-secondary col-md-3" Value="Reset">
+    </form>
+</div>
+    <script type="text/javascript" src="js/vendors/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/vendors/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+    $('form').validate({
+        rules: {
+            fname: {
+                minlength: 4, 
+                maxlength: 15,
+                required: true
+            },
+            lname: {
+                minlength: 4,
+                maxlength: 15,
+                required: true
+            },
+            email:{
+                minlength:6,
+                required:true,
+            },
+            password:{
+                minlength:6,
+                required:true,
+            },
+            Gender:{
+                required:true,   
+            },
+            date:{
+                required:true,
+            },
+            system:{
+                required:true,
+            },
+            brand:{
+                required:true,
+            },
+        },
+        messages: {
+					fname: {
+                       required: "Please enter your firstname",
+					   minlength: "Your first name should have at least 4 characters"
+                    },
+					lname: {
+                        required:"Please enter your lastname",
+                        minlength: "Your last name should have at least 4 characters"
+                    },
+                    email: {
+                        required:"Please enter your valid email address",
+                        minlength: "Your email should have at least 6 characters"
+                    },
+                    password: {
+                        required:"Please enter your password",
+                        minlength: "Your password should have at least 6 characters"
+                    },
+				},
+        highlight: function(element) {
+            var id_attr = "#" + $(element).attr("id") + "1";
+            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');
+        },
+        unhighlight: function(element) {
+            var id_attr = "#" + $(element).attr("id") + "1";
+            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');
+        },
+        errorElement: 'span',
+        errorClass: 'help-block',
+        errorPlacement: function(error, element) {
+            if (element.length) {
+                error.insertAfter(element);
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+    </script>
+</body>
+</html>
